@@ -1,0 +1,12 @@
+<h1>Account Details</h1>
+<div class="border" *ngIf="userDetails">
+  <p><strong>Username:</strong> {{ userDetails.username }}</p>
+  <p><strong>Email:</strong> {{ userDetails.email }}</p>
+  <p><strong>Role:</strong> {{ userDetails.roleName }}</p>
+  <p><strong>Permissions:</strong></p>
+  <ul>
+    <li *ngFor="let permission of userDetails.permissions; let i = index">
+      {{ i + 1 }}. {{ permission }}
+    </li>
+  </ul>
+</div>

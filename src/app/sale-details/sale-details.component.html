@@ -1,0 +1,85 @@
+<h2>Order Details</h2>
+
+<div class="border">
+  <table *ngIf="orderDetails">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Upgrade Boxes</th>
+        <th>Service Provider</th>
+        <th>Duration</th>
+        <th>Active Services</th>
+
+        <th>Account No.</th>
+        <th>Security Pin</th>
+        <th>SSN</th>
+        <th>Date of Birth</th>
+
+        <th>Name on Card</th>
+        <th>Card Provider</th>
+        <th>Card Type</th>
+        <th>CVV</th>
+        <th>Expiry</th>
+
+        <th>Comment/Note</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+<!--  clientId: clientId,
+
+      id: order.id,
+      Upgrade: order.Upgrade,
+      serviceProvider: order.serviceProvider,
+      duration: order.duration,
+      services: selectedServices,
+
+      accountNum: order.accountNum,
+      securityPin: order.securityPin,
+      SSN: order.SSN,
+      dob: order.dob,
+
+      nameOnCard: order.nameOnCard,
+      cardProvider: order.cardProvider,
+      type: order.type,
+      cardNum: order.cardNum,
+      CVV: order.CVV,
+      expiry: order.expiry,
+      comment:order.comment -->
+
+
+      <tr *ngIf="orderDetails">
+        <td>{{ orderDetails.id }}</td>
+        <td>{{ orderDetails.Upgrade }}</td>
+        <td>{{ orderDetails.serviceProvider }}</td>
+        <td>{{ orderDetails.duration }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let service of orderDetails.services">{{ service }}</li>
+          </ul>
+        </td>
+
+      <td>{{orderDetails.accountNum}}</td>
+      <td>{{orderDetails.securityPin}}</td>
+      <td>{{orderDetails.SSN}}</td>    
+      <td>{{orderDetails.dob}}</td>
+   
+        <td>{{ orderDetails.nameOnCard }}</td>
+        <td>{{ orderDetails.cardProvider }}</td>      
+        <td>{{ orderDetails.type }}</td>
+        <td>{{ orderDetails.CVV }}</td>
+        <td>{{ orderDetails.expiry }}</td>
+        <td>{{ orderDetails.comment }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn-update">Update</button>
+</div>
+
+<div *ngIf="!orderDetails">
+  <p>No order details available.</p>
+</div>

@@ -1,0 +1,30 @@
+<div class="main" *ngIf="allUsers.length > 0">
+  <h2>All Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of allUsers">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.roleName }}</td>
+        <td>
+          <select [(ngModel)]="user.newRole">
+            <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+          </select>
+          <button class='btn-update' (click)="updateUserRole(user.id, user.newRole)">Update Role</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="allUsers.length === 0">
+  <p>No users found.</p>
+</div>

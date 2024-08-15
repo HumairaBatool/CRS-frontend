@@ -1,0 +1,141 @@
+form {
+  width: 600px;
+  margin: 0 auto;
+  padding: 2em;
+  border: 3px solid;
+  border-radius: 1em;
+  border-color: #7790e2;
+  margin-top: 100px;
+
+}
+h1{
+color: #1b40b9;
+text-align: center;
+}
+h2{
+  color: #1b40b9;
+  }
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+.required{
+  color: rgb(182, 27, 27);
+}
+label {
+  margin-bottom: .5em;
+  display: block;
+  font-weight:500;
+  font-family: Arial, sans-serif;
+  color: #09278b;
+
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  font-size: 0.8em; 
+  color: #849ae2;
+}
+input,
+select,
+textarea {
+  border: 1px solid #849ae2;
+  padding: .5em;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  color: #09278b;
+}
+
+button {
+  padding: 0.7em 1.5em;
+  color: #fff;
+  background-color:#4769da;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  display: block;
+  margin: 0 auto;
+}
+
+button[disabled] {
+  background-color: #7790e2;
+  cursor: not-allowed;
+}
+
+button:not([disabled]):hover {
+  background-color:#1b40b9;
+}
+  
+  .radio-group {
+    display: flex;
+    flex-direction: row;
+  
+  }
+  
+  .radio-group div {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5em;
+  }
+  
+  .radio-options {
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+    margin-top: 13px;
+    margin-right: 10px;
+  color:#09278b;
+  }
+  .dropdown{
+    background-color: white;
+  }
+  .date{
+    color: #849ae2;
+  }
+  .response-table {
+    margin-top: 20px;
+    background-color: #f8eefa;
+    border-color: #ca91d1;
+  }
+  
+  .response-table h2 {
+    margin-bottom: 10px;
+    
+  }
+  
+  .response-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .response-table th, .response-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .response-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+  }
+  
+  .response-table td {
+    text-align: left;
+  }
+  
+  .required {
+    color: red;
+  }
+  .short{
+    display: flex;
+  column-gap: 100px;
+  }

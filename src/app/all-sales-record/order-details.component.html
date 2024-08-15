@@ -1,0 +1,90 @@
+<div class="main">
+  <h2>All Sales Details</h2>
+  <table *ngIf="orderDetails.length > 0">
+    <thead>
+      <tr>
+        <th>Sale ID</th>
+        <th>Order ID</th>
+        <th>Client Name</th>
+        <th>Agent Name</th>
+        <th>Service</th>
+        <th>Service Provider</th>
+        <th>Duration</th>
+        <th>Upgradation</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterate over the orders -->
+      <ng-container *ngFor="let order of orderDetails; let i = index">
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.clientName }}</td>
+          <td>{{ order.agentName }}</td>
+          <td>{{ order.Service }}</td>
+          <td>{{ order.serviceProvider }}</td>
+          <td>{{ order.duration }}</td>
+          <td>{{ order.Upgradation }}</td>
+          <td>
+ <!-- Single Actions button with dropdown -->
+ <div class="dropdown">
+  <button class="dropdown-toggle">
+    Actions
+  </button>
+  <div class="dropdown-menu">
+    <button (click)="toggleOrderDetails(order.id)">
+      Show Details
+    </button>
+    <button *ngIf="isAdminOrSubadmin" (click)="editOrderDetails(order.id)">
+      Edit Details
+    </button>
+  </div>
+</div>
+          </td>
+        </tr>
+
+        <!-- Details row to show information about the selected order -->
+        <tr *ngIf="selectedOrder && selectedOrder.id === order.id">
+          <td colspan="11">
+            <div>
+              <table class="styled-table">
+                <thead>
+                  <tr>
+                    <th>Comment</th>
+                    <th>accountNum</th>
+                    <th>securityPin</th>
+                    <th>SSN</th>
+                    <th>DOB</th>
+                    <th>cardProvider</th>
+                    <th>nameOnCard</th>
+                    <th>CardType</th>
+                    <th>cardNum</th>
+                    <th>expiry</th>
+                    <th>CVV</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ selectedOrder.comment }}</td>
+                    <td>{{ selectedOrder.accountNum }}</td>
+                    <td>{{ selectedOrder.securityPin }}</td>
+                    <td>{{ selectedOrder.SSN }}</td>
+                    <td>{{ selectedOrder.DOB }}</td>
+                    <td>{{ selectedOrder.cardProvider }}</td>
+                    <td>{{ selectedOrder.nameOnCard }}</td>
+                    <td>{{ selectedOrder.CardType }}</td>
+                    <td>{{ selectedOrder.cardNum }}</td>
+                    <td>{{ selectedOrder.expiry }}</td>
+                    <td>{{ selectedOrder.CVV }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <p *ngIf="orderDetails.length === 0">No order details available.</p>
+</div>

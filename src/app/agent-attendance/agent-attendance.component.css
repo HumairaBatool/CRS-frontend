@@ -1,0 +1,37 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 0 10px; 
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.check-in-button {
+  background-color: #4caf50;
+}
+
+.check-in-button:hover {
+  background-color: #45a049; 
+}
+
+.check-out-button {
+  background-color: #f44336; 
+}
+
+.check-out-button:hover {
+  background-color: #e53935; 
+}

@@ -1,0 +1,68 @@
+h2{
+  color: #1b40b9;
+  }
+
+.border {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2em;
+  border-color: #7790e2;
+  border-radius: 1em;
+  overflow-x: auto;
+  margin-top: 100px;
+}
+
+/* Style for the table */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+td {
+  width: 60%; /* Adjust width of the data column */
+}
+
+th {
+  color: #333;
+  width: 40%; /* Adjust width of the header column */
+}
+
+/* Style for alternating row colors */
+
+/* Style for alternating row colors */
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #dfe1f5;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+button{
+  margin-top: 20px;
+  border-radius: 7px;
+  padding: 8px;
+  border-color: #4769da;
+  color: #fff;
+  background-color:#4769da;
+}
+
+button[disabled] {
+  background-color: #7790e2;
+  cursor: not-allowed;
+}
+
+button:not([disabled]):hover {
+  background-color:#1b40b9;
+}

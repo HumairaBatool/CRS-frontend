@@ -1,0 +1,55 @@
+<header class="top-navbar">
+  <div class="top-navbar-content">
+    <!-- App Name -->
+    <div class="app-name">
+     <h1> <a (click)="navigateToPage('home')">CRM-app</a></h1>
+
+    </div>
+
+    <nav class="center-nav">
+      <ul class="nav-links">
+        <li><a [class.active]="currentPage === 'home'" (click)="navigateToPage('home')">Home</a></li>
+        <li><a [class.active]="currentPage === 'about-us'" (click)="navigateToPage('about-us')">About Us</a></li>
+        <li><a [class.active]="currentPage === 'contact-us'" (click)="navigateToPage('contact-us')">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- User Info or Login/Signup -->
+    <div
+      class="user-info"
+      *ngIf="authService.isLoggedIn(); else showLoginSignup"
+    >
+      <div class="user-info-content">
+        <span class="user-name">
+          <strong (click)="navigateToDetails()">
+            {{ userName }}
+          </strong>
+        </span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="login-signup-buttons">
+      <ng-template #showLoginSignup>
+        <div class="dropdown">
+          <button
+            class="showLoginSignupButtons"
+            (click)="toggleLoginDropdown()"
+          >
+            Login
+          </button>
+          <div *ngIf="showLoginDropdown" class="dropdown-content">
+            <a (click)="navigateToLogin('user')">User</a>
+            <a (click)="navigateToLogin('client')">Client</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button (click)="toggleSignupDropdown()">Sign Up</button>
+          <div *ngIf="showSignupDropdown" class="dropdown-content">
+            <a (click)="navigateToSignup('user')">User</a>
+            <a (click)="navigateToSignup('client')">Client</a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</header>

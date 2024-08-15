@@ -1,0 +1,57 @@
+<form [formGroup]="clientSignupForm" (ngSubmit)="onSubmit()">
+  <h2>Personal Details</h2>
+
+  <div class="form-group">
+    <label>Name:<span class="required"> *</span></label>
+    <input
+      formControlName="name"
+      placeholder="Enter account holder name"
+    />
+  </div>
+  <div class="form-group">
+    <label>Acc. Email<span class="required"> *</span></label>
+    <input
+      formControlName="accEmailAdd"
+      type="email"
+      placeholder="Enter account email address"
+    />
+  </div>
+  <div class="form-group">
+    <label>Acc. Address<span class="required"> *</span></label>
+    <input formControlName="accAddress" placeholder="Enter account address" />
+  </div>
+  <div class="short">
+  <div class="form-group">
+    <label>Acc. Phone no.<span class="required"> *</span></label>
+    <input
+      formControlName="accPhoneNum"
+      placeholder="Enter account phone number"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Alt. Phone no.<span class="required"> *</span></label>
+    <input
+      formControlName="altPhoneNum"
+      placeholder="Enter alternative phone number"
+    />
+  </div>
+</div>
+<div class="short">
+  <div class="form-group">
+    <label>On Call Person/Relation: <span class="required"> *</span></label>
+    <input
+      formControlName="onCallPerson"
+      placeholder="Enter on call person/relation"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Name of Closer<span class="required"> *</span></label>
+    <input formControlName="nameOfCloser" placeholder="Enter name of closer" />
+  </div>
+</div>
+
+  <button type="submit" [disabled]="clientSignupForm.invalid">Sign in</button>
+</form>
+

@@ -1,0 +1,86 @@
+h1 {
+    text-align: center;
+    color:#3a0163;
+  }
+  
+  .border {
+    width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    border: 3px solid;
+    border-radius: 1em;
+    border-color:#F3CCFF;
+  }
+  
+  p {
+    font-family: Arial, sans-serif;
+    color: #3a0163;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    font-family: Arial, sans-serif;
+    color: #3a0163;
+  }
+  
+  /* Style for the button */
+  button {
+    padding: 20px 30px;
+    font-size: 16px;
+    color: #3a0163;
+    background-color: #F3CCFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-content: center;
+  }
+  .btn-continer{
+    display: flex;
+    margin-top: 20px;
+column-gap: 50px;
+justify-content: center;
+  }
+  button:hover {
+    background-color: #690eaa;
+  }
+  
+  /* Style for the table */
+  table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style for the header */
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the empty state message */
+
+  

@@ -1,0 +1,28 @@
+<div class=" border" *ngIf="attendanceRecords.length > 0">
+    <h2>Attendance Records</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Agent ID</th>
+          <th>Agent Name</th>
+          <th>Email</th>
+          <th>Check-In Time</th>
+          <th>Check-Out Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of attendanceRecords">
+          <td>{{ record.agentId }}</td>
+          <td>{{ record.User.username }}</td>
+          <td>{{ record.User.email }}</td>
+          <td>{{ record.checkInTime | date: 'short' }}</td>
+          <td>{{ record.checkOutTime | date: 'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="attendanceRecords.length === 0">
+    <p>No attendance records found.</p>
+  </div> 
+  

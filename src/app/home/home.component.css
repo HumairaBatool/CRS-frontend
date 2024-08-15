@@ -1,0 +1,50 @@
+.home-container {
+    border: 50px solid #c8ccf5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh; /* Make it full viewport height */
+    box-sizing: border-box;
+    margin: 20px;
+    margin-top: 100px;
+  }
+  
+  .content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .text-section {
+    width: 50%;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+  
+  .text-section h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: rgb(19, 19, 182);
+
+  }
+  
+  .text-section p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: rgb(19, 19, 182);
+
+  }
+  
+  .image-section {
+    width: 50%;
+    text-align: right;
+  }
+  
+  .image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: adds rounded corners to the image */
+  }
+  

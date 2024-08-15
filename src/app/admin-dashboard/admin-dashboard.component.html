@@ -1,0 +1,19 @@
+<div class="main-dashboard">
+  <div *ngIf="showSidebar" class="sidebar-section">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="admin-content">
+    <!-- <div>
+      <canvasjs-chart
+        [options]="chartOptions"
+        [styles]="{ width: '100%', height: '360px' }"
+      ></canvasjs-chart>
+    </div> -->
+    <app-order-details></app-order-details>
+    <app-users-details></app-users-details>
+
+  </div>
+
+</div>
+<router-outlet></router-outlet>

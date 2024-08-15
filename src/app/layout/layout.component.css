@@ -1,0 +1,25 @@
+.main-dashboard {
+    display: flex;
+    height: calc(100vh - 100px); /* Adjust height if needed */
+    box-sizing: border-box;
+  }
+  
+  .sidebar-section {
+    flex: 0 0 300px; /* Fixed width for the sidebar */
+    height: 100%; /* Full height */
+    background-color: #dfe1f5; /* Purple shade */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: sticky; /* Keeps the sidebar in place */
+    top: 100px; /* Adjust based on the margin-top of .main-dashboard */
+    overflow-y: auto;
+  }
+  
+  .admin-content {
+    flex: 1; /* Takes remaining width */
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f4f4f9; /* Light background for content */
+  }
+  

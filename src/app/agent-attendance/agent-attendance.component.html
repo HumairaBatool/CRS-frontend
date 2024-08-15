@@ -1,0 +1,7 @@
+<div class="button-container">
+  <button class="button check-in-button" (click)="checkIn()">Check-In</button>
+  <button class="button check-out-button" (click)="checkOut()">Check-Out</button>
+</div>
+<div *ngIf="message">
+  <p>{{ message }}</p>
+</div>

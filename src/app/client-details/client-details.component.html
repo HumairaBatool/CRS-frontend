@@ -1,0 +1,39 @@
+<div *ngIf="clientDetails" class="border">
+  <h2>Client Details</h2>
+  <table>
+    <tr>
+      <th>Account Holder Name</th>
+      <td>{{ clientDetails.name }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ clientDetails.email }}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td>{{ clientDetails.address }}</td>
+    </tr>
+    <tr>
+      <th>Number</th>
+      <td>{{ clientDetails.num1 }}</td>
+    </tr>
+    <tr>
+      <th>Alternate Number</th>
+      <td>{{ clientDetails.num2 }}</td>
+    </tr>
+    <tr>
+      <th>On Call Person Relation</th>
+      <td>{{ clientDetails.relation }}</td>
+    </tr>
+    <tr>
+      <th>Closer Name</th>
+      <td>{{ clientDetails.closerName }}</td>
+    </tr>
+  </table>
+
+  <button (click)="navigateToplaceOrder()">Place an Order</button>
+</div>
+
+<div *ngIf="!clientDetails">
+  <p>Loading client details...</p>
+</div>
