@@ -64,10 +64,20 @@ export class AuthService {
     const user = this.userDetailsSubject.getValue();
     return user && ( user.roleName === 'SuperAdmin');
   }
+  isManager() {
+    const user = this.userDetailsSubject.getValue();
+    return user && (user.roleName === 'Manager' );
+  }
+
+  isSupervisor() {
+    const user = this.userDetailsSubject.getValue();
+    return user && (user.roleName === 'SalesSupervisor' );
+  }
   isAgent() {
     const user = this.userDetailsSubject.getValue();
     return user && (user.roleName === 'SalesAgent' );
   }
+
 
   isLoggedIn() {
     return !!this.getToken() || !!this.getClientDetails().token;

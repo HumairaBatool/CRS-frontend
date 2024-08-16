@@ -18,6 +18,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { AgentDashboardComponent } from './agent-dashboard/agent-dashboard.component';
 import { SuperAdminDashboardComponent } from './super-admin-dashboard/super-admin-dashboard.component';
 import { GetAttendanceRecordsComponent } from './get-attendance-records/get-attendance-records.component';
+import { EditSaleModalComponent } from './edit-sale-modal/edit-sale-modal.component';
+import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
+import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: './home', pathMatch: 'full' },
@@ -32,14 +35,15 @@ const routes: Routes = [
   { path: 'sales-details', component: OrderDetailsComponent },
   { path: 'sales-form', component: FormComponent },
   { path: 'sale-details', component: SaleDetailsComponent },
-
+{path:'update-order',component:EditSaleModalComponent},
   { path: 'clientSignup', component: ClientSignupComponent },
   { path: 'clientLogin', component: ClientLoginComponent },
   { path: 'getclientDetail', component: ClientDetailsComponent },
 
   { path: 'admin-dashboard', component: AdminDashboardComponent },
-
   { path: 'superadmin-dashboard', component: SuperAdminDashboardComponent },
+  { path: 'manager-dashboard', component: ManagerDashboardComponent },
+  { path: 'supervisor-dashboard', component: SupervisorDashboardComponent },
 
   { path: 'agent-dashboard', component: AgentDashboardComponent },
   {path:'attendance',component:GetAttendanceRecordsComponent}

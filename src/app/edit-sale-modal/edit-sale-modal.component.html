@@ -1,129 +1,151 @@
-<div class="modal-overlay" >
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Edit Sale Details</h4>
-        <button type="button" class="close-button" (click)="closeModal()">Close ×</button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="editSaleForm" (ngSubmit)="saveChanges()">
-          <div class="form-group">
-            <label for="clientName">Client Name</label>
-            <input type="text" id="clientName" formControlName="clientName" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="Service">Service</label>
-            <input type="text" id="Service" formControlName="Service" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="serviceProvider">Service Provider</label>
-            <input type="text" id="serviceProvider" formControlName="serviceProvider" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="duration">Duration</label>
-            <input type="text" id="duration" formControlName="duration" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="Upgrade">Upgrade</label>
-            <input type="text" id="Upgrade" formControlName="Upgrade" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="clientEmail">Client Email</label>
-            <input type="email" id="clientEmail" formControlName="clientEmail" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="clientAddress">Client Address</label>
-            <input type="text" id="clientAddress" formControlName="clientAddress" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="clientPrimaryPhone">Client Primary Phone</label>
-            <input type="text" id="clientPrimaryPhone" formControlName="clientPrimaryPhone" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="clientAlternatePhone">Client Alternate Phone</label>
-            <input type="text" id="clientAlternatePhone" formControlName="clientAlternatePhone" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="clientRelation">Client Relation</label>
-            <input type="text" id="clientRelation" formControlName="clientRelation" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="clientCloserName">Client Closer Name</label>
-            <input type="text" id="clientCloserName" formControlName="clientCloserName" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="agentName">Agent Name</label>
-            <input type="text" id="agentName" formControlName="agentName" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="comment">Comment</label>
-            <input type="text" id="comment" formControlName="comment" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="securityPin">Security Pin</label>
-            <input type="text" id="securityPin" formControlName="securityPin" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="accountNum">Account Number</label>
-            <input type="text" id="accountNum" formControlName="accountNum" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="SSN">SSN</label>
-            <input type="text" id="SSN" formControlName="SSN" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="cardProvider">Card Provider</label>
-            <input type="text" id="cardProvider" formControlName="cardProvider" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="nameOnCard">Name on Card</label>
-            <input type="text" id="nameOnCard" formControlName="nameOnCard" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="CardType">Card Type</label>
-            <input type="text" id="CardType" formControlName="CardType" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="cardNum">Card Number</label>
-            <input type="text" id="cardNum" formControlName="cardNum" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="DOB">Date of Birth</label>
-            <input type="date" id="DOB" formControlName="DOB" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="expiry">Expiry Date</label>
-            <input type="date" id="expiry" formControlName="expiry" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label for="CVV">CVV</label>
-            <input type="text" id="CVV" formControlName="CVV" class="form-control">
-          </div>
-  
-          <button type="submit" class="btn btn-primary">Save Changes</button>
-        </form>
-      </div>
+<div *ngIf="!isSubmitted" class="form">
+
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <label for="clientName">Client Name:</label>
+      <input type="text" id="clientName" formControlName="clientName" />
     </div>
+
+    <div>
+        <label for="Service">Service:</label>
+        <select class='dropdown' formControlName="Service" id="Service">
+          <option *ngFor="let Service of activeServices" [value]="Service">
+            {{ Service }}
+          </option>
+        </select>
+      </div>
+    <div>
+      <label for="serviceProvider">Service Provider:</label>
+      <select class='dropdown'  formControlName="serviceProvider" id="serviceProvider">
+        <option *ngFor="let provider of serviceProviders" [value]="provider">
+          {{ provider }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label for="duration">Duration:</label>
+      <select class='dropdown'  formControlName="duration" id="duration">
+        <option *ngFor="let duration of durations" [value]="duration">
+          {{ duration }}
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label for="Upgrade">Want to Upgrade Boxes:</label>
+      <select class='dropdown'  formControlName="Upgrade" id="Upgrade">
+        <option *ngFor="let option of wantToUpgradeBoxes" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+
+    <div>
+      <label for="clientAddress">Client Address:</label>
+      <input type="text" id="clientAddress" formControlName="clientAddress" />
+    </div>
+
+    <div>
+      <label for="clientPrimaryPhone">Primary Phone:</label>
+      <input
+        type="text"
+        id="clientPrimaryPhone"
+        formControlName="clientPrimaryPhone"
+      />
+    </div>
+
+    <div>
+      <label for="clientAlternatePhone">Alternate Phone:</label>
+      <input
+        type="text"
+        id="clientAlternatePhone"
+        formControlName="clientAlternatePhone"
+      />
+    </div>
+
+    <div>
+      <label for="clientRelation">Relation:</label>
+      <input type="text" id="clientRelation" formControlName="clientRelation" />
+    </div>
+
+    <div>
+      <label for="clientCloserName">Closer Name:</label>
+      <input
+        type="text"
+        id="clientCloserName"
+        formControlName="clientCloserName"
+      />
+    </div>
+
+
+    <div>
+      <label for="securityPin">Security Pin:</label>
+      <input type="text" id="securityPin" formControlName="securityPin" />
+    </div>
+
+    <div>
+      <label for="accountNum">Account Number:</label>
+      <input type="text" id="accountNum" formControlName="accountNum" />
+    </div>
+
+    <div>
+      <label for="SSN">SSN:</label>
+      <input type="text" id="SSN" formControlName="SSN" />
+    </div>
+
+    <div>
+      <label for="cardProvider">Card Provider:</label>
+      <select class='dropdown'  id="cardProvider" formControlName="cardProvider">
+        <option value="MasterCard">MasterCard</option>
+        <option value="Visa">Visa</option>
+        <option value="American Express">American Express</option>
+        <option value="Discover">Discover</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="nameOnCard">Name on Card:</label>
+      <input type="text" id="nameOnCard" formControlName="nameOnCard" />
+    </div>
+
+    <div>
+      <label for="CardType">Card Type:</label>
+      <select  class='dropdown' id="CardType" formControlName="CardType">
+        <option value="Credit">Credit</option>
+        <option value="Debit">Debit</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="cardNum">Card Number:</label>
+      <input type="text" id="cardNum" formControlName="cardNum" />
+    </div>
+
+    <div>
+      <label for="DOB">Date of Birth:</label>
+      <input type="date" id="DOB" formControlName="DOB" />
+    </div>
+
+    <div>
+      <label for="expiry">Card Expiry:</label>
+      <input
+        type="text"
+        id="expiry"
+        formControlName="expiry"
+        placeholder="MM/YYYY"
+      />
+    </div>
+
+    <div>
+      <label for="CVV">CVV:</label>
+      <input type="text" id="CVV" formControlName="CVV" />
+    </div>
+
+    <button type="submit" [disabled]="updateForm.invalid">Update</button>
+  </form>
+</div>
+<div *ngIf="isSubmitted" class="success-message">
+    <p>{{ successMessage }}</p>
   </div>
-  

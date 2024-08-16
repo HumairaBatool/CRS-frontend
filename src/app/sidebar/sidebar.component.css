@@ -1,5 +1,11 @@
-
 /* Sidebar Styling */
+.sidebar-main {
+  width: 300px;
+  height: 100vh; /* Full viewport height */
+  position: fixed; /* Keeps the sidebar fixed on the page */
+}
+
+  
 .sidebar {
   margin-left: 20px;
   width: 100%; 
@@ -10,9 +16,6 @@
   border-radius: 10px;
   box-sizing: border-box; 
 }
-
-
-
 
   .sidebar ul {
     list-style-type: none;
@@ -33,9 +36,7 @@
     color: rgb(5, 5, 109);
     font-weight: bold;
   }
-
-
-  
+ 
   .sidebar ul li a.active-link {
     font-weight: bold;
   }

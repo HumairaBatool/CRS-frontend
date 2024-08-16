@@ -26,6 +26,10 @@ export class GetAttendanceRecordsComponent implements OnInit {
         console.log('attendance records: ',this.attendanceRecords)
       },
       (error) => {
+        if (error.status === 401 && this.authService.isLoggedIn()) {
+          console.log('token expires');
+          this.authService.logout();
+        } 
         console.error('Error fetching order details:', error);
       }
     );

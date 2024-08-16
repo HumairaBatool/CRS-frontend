@@ -1,14 +1,81 @@
-<div >
-
+<div class="sidebar-main">
   <nav class="sidebar">
     <ul>
-      <li><a routerLink="/admin-dashboard" routerLinkActive="active-link">Dashboard</a></li>
-      <li><a routerLink="/sales-details" routerLinkActive="active-link">View All Sales</a></li>
-      <li><a routerLink="/users-details" routerLinkActive="active-link">Manage User Roles</a></li>
-      <li><a routerLink="/attendance" routerLinkActive="active-link">Attendance</a></li>
+      <!-- For SuperAdmin or Admin -->
+      <li *ngIf="currentUser === 'Admin' ">
+        <a routerLink="/admin-dashboard" routerLinkActive="active-link">Dashboard</a>
+      </li>
+      <li *ngIf="currentUser === 'SuperAdmin'">
+        <a routerLink="/superadmin-dashboard" routerLinkActive="active-link">Dashboard</a>
+      </li>
+      
+      <li *ngIf="currentUser === 'SalesAgent'">
+        <a routerLink="/agent-dashboard" routerLinkActive="active-link">Dashboard</a>
+      </li>
 
-      <li><a routerLink="/team-activities" routerLinkActive="active-link">Team Activities</a></li>
-      <li><a routerLink="/reports" routerLinkActive="active-link">Reports and Statistics</a></li>
+      <li *ngIf="currentUser === 'Manager'">
+        <a routerLink="/manager-dashboard" routerLinkActive="active-link">Dashboard</a>
+      </li> 
+      
+      <li *ngIf="currentUser === 'SalesSupervisor'">
+        <a routerLink="/supervisor-dashboard" routerLinkActive="active-link">Dashboard</a>
+      </li>
+
+
+      <!-- For SuperAdmin -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Admin'">
+        <a routerLink="/sales-details" routerLinkActive="active-link">View All Sales</a>
+      </li>
+
+      <!-- For SuperAdmin or Admin -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Admin'">
+        <a routerLink="/users-details" routerLinkActive="active-link">Manage User Roles</a>
+      </li>
+
+      <!-- For SuperAdmin -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Admin'">
+        <a routerLink="/attendance" routerLinkActive="active-link">Attendance</a>
+      </li>
+
+      <!-- For SuperAdmin or Admin -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Admin'">
+        <a routerLink="/system-operation" routerLinkActive="active-link">System Operations</a>
+      </li>
+
+      <!-- For SuperAdmin or Manager -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Manager'">
+        <a routerLink="/team-activities" routerLinkActive="active-link">Team Activities</a>
+      </li>
+
+      <!-- For SuperAdmin or Manager -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Manager'">
+        <a routerLink="/reports-statistics" routerLinkActive="active-link">Reports and Statistics</a>
+      </li>
+
+      <!-- For SuperAdmin or Manager -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'Manager'">
+        <a routerLink="/data-modification" routerLinkActive="active-link">Data Modification</a>
+      </li>
+
+      <!-- For SuperAdmin or SalesSupervisor -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'SalesSupervisor'">
+        <a routerLink="/sales-statics" routerLinkActive="active-link">Sales Statistics</a>
+      </li>
+
+      <!-- For SuperAdmin or SalesSupervisor -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'SalesSupervisor'">
+        <a routerLink="/team-performance" routerLinkActive="active-link">Team Performance</a>
+      </li>
+
+      <!-- For SuperAdmin or SalesAgent -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'SalesAgent'">
+        <a routerLink="/sales-modification" routerLinkActive="active-link">Sales Data Modification</a>
+      </li>
+
+      <!-- For SuperAdmin or SalesAgent -->
+      <li *ngIf="currentUser === 'SuperAdmin' || currentUser === 'SalesAgent'">
+        <a routerLink="/personal-performance" routerLinkActive="active-link">Personal Performance</a>
+      </li>
     </ul>
   </nav>
 </div>

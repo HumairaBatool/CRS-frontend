@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { EditSaleModalComponent } from '../edit-sale-modal/edit-sale-modal.component';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-order-details',
@@ -14,11 +13,12 @@ export class OrderDetailsComponent implements OnInit {
   orderDetails: any[] = [];
   selectedOrder: any;
   selectedSaleID: number | null = null;
-  isAdminOrSubadmin=true;
+  isAdminOrSubadmin = true;
+
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private modalService: NgbModal,
+    private router: Router // Inject Router
   ) {}
 
   ngOnInit() {
@@ -28,9 +28,12 @@ export class OrderDetailsComponent implements OnInit {
     this.userService.getSalesDetails(headers).subscribe(
       (response) => {
         this.orderDetails = response;
-        // console.log('orderDetails :',this.orderDetails)
       },
       (error) => {
+        if (error.status === 401 && this.authService.isLoggedIn()) {
+          console.log('token expires');
+          this.authService.logout();
+        }
         console.error('Error fetching order details:', error);
       }
     );
@@ -43,9 +46,13 @@ export class OrderDetailsComponent implements OnInit {
     this.userService.getSaleDetailsOfSpecificOrder(saleID, headers).subscribe(
       (response: any) => {
         this.selectedOrder = response[0];
-        console.log('selectedOrder: ',this.selectedOrder)
+        console.log('selectedOrder: ', this.selectedOrder);
       },
       (error) => {
+        if (error.status === 401 && this.authService.isLoggedIn()) {
+          console.log('token expires');
+          this.authService.logout();
+        }
         console.error('Frontend: Error fetching order details', error);
       }
     );
@@ -61,30 +68,25 @@ export class OrderDetailsComponent implements OnInit {
     }
   }
 
-
   editOrderDetails(saleID: number): void {
-    const modalRef = this.modalService.open(EditSaleModalComponent);
-  
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authService.getToken()}`,
     });
-  
     this.userService.getSaleDetailsOfSpecificOrder(saleID, headers).subscribe(
       (response: any) => {
-        console.log('Data to be passed to modal:', response[0]);
-        modalRef.componentInstance.orderDetails = response[0];
-        modalRef.result.then((result) => {
-          // Handle modal close result if needed
-          console.log('result: ',result)
-        }).catch((error) => {
-          console.error('Error handling modal result:', error);
+        this.selectedOrder = response[0];
+        console.log('selectedOrder: ', this.selectedOrder);
+        this.router.navigate(['/update-order'], {
+          state: { selectedOrder: this.selectedOrder },
         });
       },
       (error) => {
+        if (error.status === 401 && this.authService.isLoggedIn()) {
+          console.log('token expires');
+          this.authService.logout();
+        }
         console.error('Frontend: Error fetching order details', error);
       }
     );
   }
-  
-  
 }

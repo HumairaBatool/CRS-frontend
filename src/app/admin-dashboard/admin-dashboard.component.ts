@@ -35,28 +35,16 @@ constructor(private router:Router,private authService:AuthService){}
     //   }]
     // }	
 
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        console.log('NavigationEnd event: ', event);
-        this.checkUserRole();
-      }
-    });
+    // this.router.events.subscribe(event => {
+    //   if (event instanceof NavigationEnd) {
+    //     console.log('NavigationEnd event: ', event);
+    //     this.checkUserRole();
+    //   }
+    // });
   }
 
 
-  private checkUserRole() {
-    // Check if the user is logged in and is an Admin
-    if (this.authService.isLoggedIn() && this.authService.isAdmin()) {
-      this.showSidebar = true; 
-    } else {
-      this.showSidebar = false; 
-    }
-  
-    console.log('User is admin:', this.authService.isAdmin());
-    console.log('Current URL:', this.router.url);
-    console.log('showSidebar set to:', this.showSidebar);
-  }
-  
+
   
   
 }

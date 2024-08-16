@@ -9,9 +9,6 @@ import { Router } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
   userDetails: any;
-  allUsers: any[] = [];
-  isAdminOrSuperAdmin: boolean = false;
-  detailsLoaded: boolean = false; // Track whether details have been loaded
 
   constructor(
     private authService: AuthService,
@@ -20,9 +17,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.userDetails = this.authService.getUserDetails();
 
-    // // Check if user is Admin or SuperAdmin
-    // this.isAdminOrSuperAdmin = this.authService.isAdminOrSuperAdmin();
-    // console.log('this.isAdminOrSuperAdmin', this.isAdminOrSuperAdmin);
+   
   }
 
 }

@@ -1,14 +1,13 @@
 
+  .main{
+    margin-left: 350px;
+  }
   h2 {
     color:#041f77;
   }
   
   .border {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2em;
-    border-radius: 1em;
+    padding: 20px;
     overflow-x: auto;
     margin-top: 100px;
   }

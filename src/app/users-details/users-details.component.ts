@@ -30,11 +30,19 @@ export class UsersDetailsComponent implements OnInit {
         console.log('response', response);
         this.allUsers = response;
       },
-      (error) => {
+      (error:any) => {
+        if (error.status === 401 && this.authService.isLoggedIn()) {
+          console.log('token expires');
+          this.authService.logout();
+        }
         console.error('Error fetching all users', error);
       }
     );
   }
+
+
+
+
 
   updateUserRole(userId: number, newRoleName: string) {
       const headers = new HttpHeaders({
@@ -46,22 +54,28 @@ export class UsersDetailsComponent implements OnInit {
 
       };
       this.userService.updateRole(body,headers).subscribe(
-        (response) => {
+        (response:any) => {
           console.log('Role updated successfully', response);
           this.ngOnInit(); // Reload all users
         },
-        (error) => {
-          console.error('Error updating role', error);
-          if (error.status === 403) {
+        (error:any) => {
+          if (error.status === 401 && this.authService.isLoggedIn()) {
+            console.log('token expires');
+            this.authService.logout();
+          } 
+         else if (error.status === 403) {
             alert('You do not have the authority to perform this action.');
-          } else if(error.status===401){
-            alert('Admin can not change its own role')
-          }
-          
+          }      
           else if (error.status === 404) {
             alert('User not found.');
-          } else {
+          } 
+          else if (error.status === 405) {
+            alert('Admin can not change its own role ');
+          }else {
+            console.error('Error updating role', error);
+
             alert('An error occurred while updating the role.');
+
           }
         }
       );

@@ -31,4 +31,7 @@ export class UserService {
   getAttendanceRecords(headers: HttpHeaders): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/attendance`, { headers });
   }
+  updateSaleDetails( body: any, headers: HttpHeaders): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updateSaleDetails`, body, { headers });
+  }
 }

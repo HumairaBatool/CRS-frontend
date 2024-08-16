@@ -32,6 +32,11 @@ export class AgentAttendanceComponent implements OnInit {
 
       },
       (error) => {
+        if(error.status===401 && this.authService.isLoggedIn())
+          {
+           console.log('token expires')
+           this.authService.logout()
+           }
         console.error('Frontend: Error during check-in:', error);
       }
     );
@@ -54,6 +59,11 @@ export class AgentAttendanceComponent implements OnInit {
         console.log('Checked out successfully:', response);
       },
       (error) => {
+        if(error.status===401 && this.authService.isLoggedIn())
+          {
+           console.log('token expires')
+           this.authService.logout()
+           }
         console.error('Error during check-out:', error);
       }
     );

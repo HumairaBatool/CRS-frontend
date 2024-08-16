@@ -8,26 +8,25 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  // showSidebar: boolean = false;
+  showSidebar: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.router.events.subscribe(event => {
-    //   if (event instanceof NavigationEnd) {
-    //     this.checkUserRole();
-    //   }
-    // });
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.checkLoggedIn();
+      }
+    });
   }
 
-  // private checkUserRole() {
-  //   const user = this.authService.getUserDetails();
-  //   const restrictedRoutes = ['/user-details', '/records'];
+  private checkLoggedIn() {
+    // const restrictedRoutes = ['/user-details', '/records'];
 
-  //   if (this.authService.isLoggedIn() && this.authService.isAdminOrSuperAdmin()) {
-  //     this.showSidebar = !restrictedRoutes.includes(this.router.url);
-  //   } else {
-  //     this.showSidebar = false;
-  //   }
-  // }
+    if (this.authService.isLoggedIn() ) {
+      this.showSidebar =true;
+    } else {
+      this.showSidebar = false;
+    }
+  }
 }

@@ -4,7 +4,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  // Import NgbModule
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -30,6 +29,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { AgentAttendanceComponent } from './agent-attendance/agent-attendance.component';
 import { GetAttendanceRecordsComponent } from './get-attendance-records/get-attendance-records.component';
 import { EditSaleModalComponent } from './edit-sale-modal/edit-sale-modal.component';
+import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
+import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,8 @@ import { EditSaleModalComponent } from './edit-sale-modal/edit-sale-modal.compon
     AgentAttendanceComponent,
     GetAttendanceRecordsComponent,
     EditSaleModalComponent,
+    SupervisorDashboardComponent,
+    ManagerDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,6 @@ import { EditSaleModalComponent } from './edit-sale-modal/edit-sale-modal.compon
     FormsModule,
     BrowserAnimationsModule,
     CanvasJSAngularChartsModule,
-    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

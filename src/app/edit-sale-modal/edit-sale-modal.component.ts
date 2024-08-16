@@ -1,28 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpHeaders } from '@angular/common/http';
+import { UserService } from '../user.service';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-edit-sale-modal',
   templateUrl: './edit-sale-modal.component.html',
-  styleUrls: ['./edit-sale-modal.component.css']
+  styleUrls: ['./edit-sale-modal.component.css'],
 })
 export class EditSaleModalComponent implements OnInit {
-  @Input() orderDetails: any;
-  editSaleForm!: FormGroup;
+  serviceProviders = ['Spectrum', 'ATT', 'Xfinity', 'Comcast'];
+  durations = ['1-3 Years', '3-5 Years', 'New Installation'];
+  activeServices = ['Cable', 'Landline', 'Internet'];
+  cardProviders = ['MasterCard', 'Visa', 'American Express', 'Discover'];
+  cardTypes = ['Credit', 'Debit'];
+  wantToUpgradeBoxes = ['Yes', 'No'];
+  updateForm!: FormGroup;
+  selectedOrder: any;
+  isSubmitted: boolean = false;
+  successMessage: string = 'Details have been updated successfully!';
 
   constructor(
     private fb: FormBuilder,
-    public activeModal: NgbActiveModal,
-
-  ) {}
-
-  ngOnInit(): void {
-    this.createForm();
-  }
-
-  createForm() {
-    this.editSaleForm = this.fb.group({
+    private userService: UserService,
+    private authService: AuthService
+  ) {
+    // Initializing the form group with form controls and their validators
+    this.updateForm = this.fb.group({
+      id:0,
+      orderId:0,
       clientName: [''],
       Service: [''],
       serviceProvider: [''],
@@ -49,23 +57,32 @@ export class EditSaleModalComponent implements OnInit {
     });
   }
 
-  saveChanges() {
-    if (this.orderDetails) {
-      this.editSaleForm.patchValue(this.orderDetails);
-      console.log('pathing values to editSaleForm-----:',this.editSaleForm)
-
-    }
-    if (this.editSaleForm.valid) {
-           
-      const updatedSale = this.editSaleForm.value;
-      console.log('this.updatedSale-----:',updatedSale)
-
-      console.log('Saving changes:', updatedSale);
-      this.closeModal();
+  ngOnInit(): void {
+    this.selectedOrder = history.state.selectedOrder;
+    if (this.selectedOrder) {
+      this.updateForm.patchValue(this.selectedOrder);
     }
   }
-
-  closeModal() {
-    this.activeModal.dismiss();
+  onSubmit() {
+    if (this.updateForm.valid) {
+      // console.log('Form values:', this.updateForm.value);
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${this.authService.getToken()}`,
+      });
+      this.userService.updateSaleDetails(this.updateForm.value, headers).subscribe(
+          (response) => {
+            this.successMessage = 'Details updated successfully!';
+            this.isSubmitted = true;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          },
+          (error) => {
+            this.successMessage = 'Failed to update details. Please try again.';
+            this.isSubmitted = true;
+          }
+        );
+    } else {
+      console.error('Form is invalid');
+    }
   }
 }
+
