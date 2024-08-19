@@ -65,7 +65,7 @@ export class EditSaleModalComponent implements OnInit {
   }
   onSubmit() {
     if (this.updateForm.valid) {
-      // console.log('Form values:', this.updateForm.value);
+      console.log('Form values:', this.updateForm.value);
       const headers = new HttpHeaders({
         Authorization: `Bearer ${this.authService.getToken()}`,
       });
