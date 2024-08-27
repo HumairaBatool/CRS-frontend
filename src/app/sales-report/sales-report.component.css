@@ -1,0 +1,58 @@
+.main{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin: 100px;
+
+}
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ecedf8; 
+  }
+  
+  .chart-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2b4599;
+  }
+h2{
+  color: #2b4599;
+
+}
+.single-card {
+  background-color: #f8f9fa;
+  border: 1px solid #d6dbee;
+  border-radius: 8px;
+  padding: 0px 20px;
+  box-shadow: 0 2px 4px #9babe0;
+  width: 250px; 
+  margin: 0 auto;
+}
+
+.service-item {
+  display: flex;
+  gap:50px;
+  padding: 5px 0;
+  border-bottom: 1px solid #cbd1e4;
+  align-items: center;
+}
+
+.service-item:last-child {
+  border-bottom: none; 
+}
+
+.card-title {
+  font-size: 1em;
+  color:#23346b;
+}
+
+.card-text {
+  font-size: 1em;
+  color: #6c757d;
+}

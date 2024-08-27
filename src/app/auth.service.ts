@@ -21,18 +21,17 @@ export class AuthService {
   setClientDetails(token: string) {
     this.clientDetails = { token };
     this.clientDetailsSubject.next(this.clientDetails);
-    localStorage.setItem('clientToken', token); // Optionally store in local storage
+    localStorage.setItem('clientToken', token); 
   }
 
   getClientDetails() {
-    // Optionally retrieve from local storage
     return { token: localStorage.getItem('clientToken') };
   }
 
   setUserDetails(user: any, token: string) {
     this.userDetails = user;
     this.token = token;
-    this.userDetailsSubject.next(user); // Update BehaviorSubject
+    this.userDetailsSubject.next(user); 
     localStorage.setItem('userDetails', JSON.stringify(user));
     localStorage.setItem('token', token);
   }
@@ -48,7 +47,6 @@ export class AuthService {
   getClientToken() {
     return this.clientDetails?.token || null;
   }
-  // Order Details Methods
   setOrderDetails(order: any) {
     this.orderDetails = order;
   }

@@ -1,14 +1,65 @@
-  <!-- <div *ngIf="showSidebar" class="sidebar-section">
-    <app-sidebar></app-sidebar>
-  </div> -->
-    <!-- <div>
-      <canvasjs-chart
-        [options]="chartOptions"
-        [styles]="{ width: '100%', height: '360px' }"
-      ></canvasjs-chart>
-    </div> -->
-    <app-order-details></app-order-details>
+
+    <!-- <app-order-details></app-order-details>
     <app-users-details></app-users-details>
+     -->
+<div class="admin-main">
+    <div>
+     <div class="dashboard">
+      <div class="card">
+        <div class="card-content">
+          <div style="    color: rgb(123, 20, 182);" class="card-icon">
+            <i class="fas fa-box"></i>
+          </div>
+          <div class="card-info">
+            <h4>New Orders</h4>
+            <p>50</p>
+          </div>
+        </div>
+      </div>
+      <!-- Sales Card -->
+      <div class="card">
+        <div class="card-content">
+          <div style="    color: green;" class="card-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="card-info">
+            <h4>Sales</h4>
+            <p>{{salesCount !==0? salesCount : 'Loading...'}}</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Orders Card -->
+      <div class="card">
+        <div class="card-content">
+          <div style="color:rgb(141, 141, 19);"  class="card-icon">
+            <i class="fas fa-box"></i>
+          </div>
+          <div class="card-info">
+            <h4>Orders</h4>
+            <p>{{ordersCount !==0? ordersCount : 'Loading...'}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Card -->
+      <div class="card">
+        <div class="card-content">
+          <div  style="color: blue;"   class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="card-info">
+            <h4>Users</h4>
+            <p>{{clientsCount !==0? clientsCount : 'Loading...'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
     
 
+    <div>
+      <app-sales-report></app-sales-report>
 
+      <!-- <app-order-details></app-order-details> -->
+    </div>
+  </div>

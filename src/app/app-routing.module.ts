@@ -21,6 +21,8 @@ import { GetAttendanceRecordsComponent } from './get-attendance-records/get-atte
 import { EditSaleModalComponent } from './edit-sale-modal/edit-sale-modal.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
+import { TeamComponent } from './team/team.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: './home', pathMatch: 'full' },
@@ -35,7 +37,7 @@ const routes: Routes = [
   { path: 'sales-details', component: OrderDetailsComponent },
   { path: 'sales-form', component: FormComponent },
   { path: 'sale-details', component: SaleDetailsComponent },
-{path:'update-order',component:EditSaleModalComponent},
+  { path: 'update-order', component: EditSaleModalComponent },
   { path: 'clientSignup', component: ClientSignupComponent },
   { path: 'clientLogin', component: ClientLoginComponent },
   { path: 'getclientDetail', component: ClientDetailsComponent },
@@ -46,7 +48,9 @@ const routes: Routes = [
   { path: 'supervisor-dashboard', component: SupervisorDashboardComponent },
 
   { path: 'agent-dashboard', component: AgentDashboardComponent },
-  {path:'attendance',component:GetAttendanceRecordsComponent}
+  { path: 'attendance', component: GetAttendanceRecordsComponent },
+  {path:'team',component:TeamComponent},
+  {path:'getWeeklySalesRecord',component:SalesReportComponent}
 ];
 
 @NgModule({

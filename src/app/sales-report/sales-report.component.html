@@ -1,0 +1,29 @@
+    <!-- <div class="chart-container">
+      <div class="chart-title">Monthly Sales Data (January to Current Month)</div>
+      <canvasjs-chart [options]="chartOptions" *ngIf="chartOptions"></canvasjs-chart>
+    </div> -->
+
+<div class="main">
+<div class="chart-container">
+    <div class="chart-title">Weekly Sales Statistics</div>
+    <canvasjs-chart *ngIf="chartOptionsWeekly" [options]="chartOptionsWeekly"></canvasjs-chart>
+  </div>
+  
+  <div *ngIf="topServices && topServices.length > 0">
+    <h2>Top Services</h2>
+    <div class="card single-card">
+      <div class="card-body">
+        <div *ngFor="let service of topServices" class="service-item">
+          <h5 class="card-title">{{ service.serviceName }}</h5>
+          <p class="card-text">Orders: {{ service.order_count }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!topServices || topServices.length === 0">
+    <p>No data available.</p>
+  </div>
+  
+  
+</div>

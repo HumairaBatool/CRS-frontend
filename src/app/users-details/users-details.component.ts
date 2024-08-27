@@ -10,16 +10,13 @@ import { Router } from '@angular/router';
 })
 export class UsersDetailsComponent implements OnInit {
   allUsers: any[] = [];
-  //isAdminOrSuperAdmin: boolean = false;
   roles: string[] = ['SuperAdmin','Admin', 'Manager', 'SalesSupervisor', 'SalesAgent']; // Add all your roles here
   selectedUserId: number | null = null;
   newRoleName: string = '';
 
   constructor(
-    private http: HttpClient,
     private authService: AuthService,
     private userService: UserService,
-    private router:Router
   ) {}
   ngOnInit(): void {
     const headers = new HttpHeaders({
@@ -41,7 +38,22 @@ export class UsersDetailsComponent implements OnInit {
   }
 
 
-
+  getAvatarClass(roleName: string): string {
+    switch (roleName) {
+      case 'SuperAdmin':
+        return 'avatar-SuperAdmin';
+      case 'Admin':
+        return 'avatar-Admin';
+      case 'Manager':
+        return 'avatar-Manager';
+      case 'SalesSupervisor':
+        return 'avatar-SalesSupervisor';
+      case 'SalesAgent':
+        return 'avatar-SalesAgent';
+      default:
+        return 'avatar-default';
+    }
+  }
 
 
   updateUserRole(userId: number, newRoleName: string) {

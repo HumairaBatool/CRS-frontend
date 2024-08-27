@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   }
 
   private checkLoggedIn() {
-    // const restrictedRoutes = ['/user-details', '/records'];
 
     if (this.authService.isLoggedIn() ) {
       this.showSidebar =true;

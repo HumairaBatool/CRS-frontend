@@ -1,7 +1,65 @@
-/* .main-dashboard {
-  margin-top: 100px;
+.admin-main{
   display: flex;
-  box-sizing: border-box;
+  margin: 20px 100px;
+
 }
-   */
-  
+.dashboard {
+  padding-top: 100px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ebedf0;
+  border-radius: 10px;
+  padding: 20px 40px;
+  width: 200px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card-icon {
+  font-size: 50px;
+}
+
+.card-info h4 {
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.card-info p {
+  margin: 0;
+  font-size: 30px;
+  color: #777;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #d2d5df;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}

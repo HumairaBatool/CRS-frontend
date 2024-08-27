@@ -75,7 +75,8 @@ form {
     }
 
     .success-message {
-      margin-left: 350px;
+        margin-left: 100px;
+
         width: 500px;
         background-color: #d4edda;
         color: #155724;

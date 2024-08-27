@@ -14,6 +14,7 @@ export class OrderDetailsComponent implements OnInit {
   selectedOrder: any;
   selectedSaleID: number | null = null;
   isAdminOrSubadmin = true;
+  isDetailsVisible: { [key: number]: boolean } = {}; // Track visibility of details by order ID
 
   constructor(
     private userService: UserService,
@@ -38,6 +39,16 @@ export class OrderDetailsComponent implements OnInit {
       }
     );
   }
+  handleAction(event: Event, orderId: number): void {
+    const selectedAction = (event.target as HTMLSelectElement).value;
+  
+    if (selectedAction === 'showDetails') {
+      this.toggleOrderDetails(orderId);
+    } else if (selectedAction === 'editDetails') {
+      this.editOrderDetails(orderId);
+    }
+  }
+  
 
   fetchOrderDetails(saleID: number): void {
     const headers = new HttpHeaders({

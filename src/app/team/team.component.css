@@ -1,5 +1,4 @@
-
-  .main{
+.main{
     margin-top: 100px;
   padding: 20px;
     margin-left: 100px;
@@ -96,19 +95,3 @@
     fill: black; 
   }
   
-  .btn-update{
-    background-color: #4c69c7; /* Dark purple shade */
-    color:white;
-    margin-left: 20px;
-    border-radius: 7px;
-    border:none;
-    padding: 7px;
-    cursor: pointer;
-    padding: 10px 16px;
-  }
-
-
-
-button:hover {
-  background-color: #031449; /* Darker purple shade */
-}

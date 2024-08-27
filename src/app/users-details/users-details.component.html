@@ -1,18 +1,36 @@
+
 <div class="main" *ngIf="allUsers.length > 0">
-  <h2>All Users</h2>
+  <h2>Our Team</h2>
   <table>
     <thead>
       <tr>
-        <th>Username</th>
+          <th>#</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Role</th>
         <th>Action</th>
+
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of allUsers">
-        <td>{{ user.username }}</td>
-        <td>{{ user.email }}</td>
+      <tr *ngFor="let user of allUsers; let i = index">
+          <td >{{i+1}}<span>.</span></td>
+        <td>
+          <span class="avatar-icon" [ngClass]="getAvatarClass(user.roleName)">
+            <i class="fas fa-user"></i>
+          </span>
+          {{ user.username }}
+        </td>
+        <td>
+          <div class="email-container">
+            <a [href]="'mailto:' + user.email" class="email-link">
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2 0a1 1 0 0 0-1 1v.586l6.293 3.146a1 1 0 0 0 1.414 0L14 5.586V5a1 1 0 0 0-1-1H2zm13 1.414L8.707 8.207a.5.5 0 0 1-.707 0L1 6.414V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6.414z"/>
+              </svg>
+            </a>
+            <!-- <span class="email-text">{{ user.email }}</span> -->
+          </div>
+        </td>
         <td>{{ user.roleName }}</td>
         <td>
           <select [(ngModel)]="user.newRole">

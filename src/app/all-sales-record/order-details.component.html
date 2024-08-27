@@ -27,20 +27,15 @@
           <td>{{ order.duration }}</td>
           <td>{{ order.Upgradation }}</td>
           <td>
- <!-- Single Actions button with dropdown -->
- <div class="dropdown">
-  <button class="dropdown-toggle">
-    Actions
-  </button>
-  <div class="dropdown-menu">
-    <button (click)="toggleOrderDetails(order.id)">
-      Show Details
-    </button>
-    <button *ngIf="isAdminOrSubadmin" (click)="editOrderDetails(order.id)">
-      Edit Details
-    </button>
-  </div>
-</div>
+            <div class="custom-dropdown">
+              <select (change)="handleAction($event, order.id)">
+                <option value="" disabled selected>Select Action</option>
+                <option value="showDetails">Show Details</option>
+                <option *ngIf="isAdminOrSubadmin" value="editDetails">
+                  Edit Details
+                </option>
+              </select>
+            </div>
           </td>
         </tr>
 

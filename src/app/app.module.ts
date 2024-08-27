@@ -31,6 +31,8 @@ import { GetAttendanceRecordsComponent } from './get-attendance-records/get-atte
 import { EditSaleModalComponent } from './edit-sale-modal/edit-sale-modal.component';
 import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard
     EditSaleModalComponent,
     SupervisorDashboardComponent,
     ManagerDashboardComponent,
+    SalesReportComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,

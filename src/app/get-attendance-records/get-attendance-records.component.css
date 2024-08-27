@@ -1,68 +1,80 @@
 
-  .main{
-    margin-left: 350px;
-  }
-  h2 {
-    color:#041f77;
-  }
-  
-  .border {
-    padding: 20px;
-    overflow-x: auto;
-    margin-top: 100px;
-  }
-  
-  table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    table-layout: auto;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    color:#09278b;}
-  
-  /* Style for alternating row colors */
-  tr:nth-child(odd) {
-    background-color: white;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dfe1f5;
-  }
-  
-  tr:hover {
-    background-color: #f5f5f5;
-  }
-  button{
-    background-color: #09278b;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-  }
-  
-  .styled-table thead tr th{
-    color: black;
-  }
-  
-  .styled-table th, .styled-table td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .styled-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
+.main{
+  margin-top: 100px;
+padding: 20px;
+  margin-left: 100px;
+
+
+}
+h2 {
+  color:rgb(65, 65, 65);
+  font-size: 20px;
+  font-weight: normal;
+}
+table {
+  width:60%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color:#bac6ee ;
+  color:rgb(65, 65, 65);
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f4f6fa;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.avatar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+  background-color: #551c50; 
+
+}
+
+
+.email-container {
+  position: relative;
+  display: inline-block;
+}
+
+.email-link {
+  display: block;
+  text-decoration: none;
+  color: #000; 
+}
+
+.email-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  fill: black; 
+}
+
